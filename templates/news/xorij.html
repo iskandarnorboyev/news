@@ -1,5 +1,6 @@
 {% extends 'news/base.html' %}
 {% load static %}
+{% load hitcount_tags %}
 
 {% block title %} Xorij xabarlari {% endblock title %}
 
@@ -11,6 +12,7 @@
                     <a href="{{ news.get_absolute_url }}">
                     <img src="{{ news.image.url }}" alt="{{ news.title }}" style="width: 70%">
                     <h3>{{ news.title }}</h3>
+                        <p>Ko'rilganlar soni: <i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for news %}</p>
                     </a>
                 </div>
             </div>
