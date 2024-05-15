@@ -94,7 +94,7 @@ class HomePageView(ListView):
         return context
 
 
-#ef contactPageView(request):
+#def contactPageView(request):
 #     print(request.POST)
 #     form = ContactForm(request.POST or None)
 #     if request.method == 'POST' and form.is_valid():
@@ -184,7 +184,9 @@ class NewsDeleteView(OnlyLoggedSuperUser,DeleteView):
 class NewsCreateView(OnlyLoggedSuperUser, CreateView):
     model = News
     template_name = 'crud/news_create.html'
-    fields = ('title', 'body', 'image', 'category', 'status', 'slug')
+    fields = ('title', 'title_uz', 'title_en', 'title_ru',
+              'body', 'body_uz', 'body_en', 'body_ru',
+              'image', 'category', 'status', 'slug')
 
 @login_required
 @user_passes_test(lambda u: u.is_superuser)
